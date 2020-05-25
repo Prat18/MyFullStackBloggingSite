@@ -1,0 +1,29 @@
+<form (submit)="onLogin(loginForm)" #loginForm="ngForm" class="login">
+  <main>
+    <mat-form-field>
+      <input
+        matInput
+        ngModel
+        name="username"
+        type="text"
+        placeholder="username"
+        required
+        #username="ngModel"
+      >
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input
+        matInput
+        ngModel
+        name="password"
+        placeholder="password"
+        required
+        type="password"
+        #password="ngModel"
+      >
+    </mat-form-field>
+    <br>
+    <button type="submit" mat-raised-button color="primary" > Signin </button>
+  </main>
+</form>
