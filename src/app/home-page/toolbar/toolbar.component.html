@@ -1,5 +1,9 @@
 <mat-toolbar color="basic" class="tool">
-  <span mat-card-title> {{company}} </span>
+  <span routerLink=""> {{company}} </span>
+  <div class="menu">
+    <a mat-button routerLink="/listblogs">Blogs</a>
+    <a mat-button routerLink="/about">About me</a>
+  </div>
   <main>
     <button mat-raised-button color="primary" (click)="loginPopup()">Login</button>
     <button mat-raised-button color="primary" (click)="signupPopup()">Signup</button>

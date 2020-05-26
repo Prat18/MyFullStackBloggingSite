@@ -5,3 +5,11 @@
 button {
   margin-right: 1rem;
 }
+
+.menu {
+  padding-left: 10px;
+}
+
+span {
+  cursor: pointer;
+}

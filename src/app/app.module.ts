@@ -11,24 +11,30 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
-import { ToolbarComponent } from './home-page/toolbar/toolbar.component';
 import { LoginComponent } from './home-page/login/login.component';
 import { SigninComponent } from './home-page/signin/signin.component'
+import { ToolbarComponent } from "./home-page/toolbar/toolbar.component";
+import { ListBlogComponent } from "./blog-page/list-blog/list-blog.component";
+import { DisplayBlogComponent } from "./blog-page/display-blog/display-blog.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     LoginComponent,
-    SigninComponent
+    SigninComponent,
+    ListBlogComponent,
+    DisplayBlogComponent
   ],
   imports: [
+    MatCardModule,
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     MatToolbarModule,
-    MatCardModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
@@ -36,7 +42,7 @@ import { SigninComponent } from './home-page/signin/signin.component'
   ],
   entryComponents: [
     SigninComponent,
-    LoginComponent
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

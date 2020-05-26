@@ -1,0 +1,25 @@
+.list {
+  resize: both;
+  width: 100%;
+  height: 10%;
+  background-color: ghostwhite;
+}
+
+mat-card {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  width: min-content;
+}
+
+mat-card-title {
+  color: black;
+  align-self: center;
+}
+
+mat-card-content {
+  color: black;
+}
+
+.flash {
+  padding: 10px;;
+}
