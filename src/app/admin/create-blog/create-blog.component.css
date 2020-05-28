@@ -1,0 +1,33 @@
+.editor, .matheader {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.matheader {
+  display: flex;
+  flex-direction: column;
+  width: 77%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+h1 {
+  margin-left: 10%;
+}
+
+button {
+  width: 3rem;
+}
+
+.post {
+  align-self: flex-end;
+}
+
+mat-form-field, .title {
+  columns: 50rem;
+}
+
+mat-form-field {
+  columns: 20%;
+}

@@ -1,1 +1,6 @@
-<h1>Display!</h1>
+<br>
+<h1> {{ Renderedblog.title }} </h1>
+<h2> {{ Renderedblog.description }} </h2>
+<br>
+
+<p [innerHTML]="Renderedblog.content"></p>

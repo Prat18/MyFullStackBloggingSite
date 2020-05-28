@@ -1,0 +1,72 @@
+<div>
+  <div>
+    <br />
+    <h1>Create New Blog</h1>
+  </div>
+  <hr />
+  <br />
+  <form  (submit)="onPost(blogPost)" #blogPost="ngForm">
+    <div>
+      <br /><br />
+      <mat-card class="matheader">
+        <div class="header">
+          <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input
+              ngModel
+              #title
+              name="title"
+              class="title"
+              required
+              placeholder="Title"
+              type="text"
+              matInput
+            />
+          </mat-form-field>
+          <br />
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea
+              ngModel
+              #description
+              name="description"
+              type="text"
+              rows="5"
+              class="description"
+              matInput
+              required
+              placeholder="Description"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </mat-card>
+      <br />
+      <div class="editor">
+        <editor
+          ngModel
+          name="content"
+          #content
+          apiKey="mwtatukwnsowju372vv1vebwqc0xw0dyv8560ri8z1d492zb"
+          [init]="{
+            height: 500,
+            menubar: false,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | removeformat | help'
+          }"
+        ></editor>
+        <br />
+        <div class="post">
+          <button type="submit" color="primary" mat-raised-button>Post</button>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+  </form>
+</div>

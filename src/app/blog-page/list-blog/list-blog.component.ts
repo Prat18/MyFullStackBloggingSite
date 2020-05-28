@@ -1,25 +1,28 @@
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { GetBlogService } from '../../get-blog.service';
 import { Preview } from '../blog.model';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-list-blog',
   templateUrl: './list-blog.component.html',
   styleUrls: ['./list-blog.component.css']
 })
-export class ListBlogComponent {
+export class ListBlogComponent implements OnInit{
 
-  blogView: Preview[] = [
-    {title: "title 1", description: "description 1"},
-    {title: "title 2", description: "description 2"},
-    {title: "title 3", description: "description 3"},
-    {title: "title 4", description: "description 4"},
-    {title: "title 5", description: "description 5"}
-  ];
+  blogView: Preview[];
 
-  constructor(private router: Router) { }
+  constructor(public getBlog: GetBlogService, private router: Router) { }
 
-  clkTest() {
-    this.router.navigate(['blog']);
+  navToBlog(id: string) {
+    this.router.navigate(['/blog', id]);
+  }
+
+  ngOnInit() {
+    this.getBlog.getBlogView();
+    this.getBlog.listenToGetBlog()
+      .subscribe((blogs: Preview[]) => {
+        this.blogView = blogs;
+      })
   }
 }

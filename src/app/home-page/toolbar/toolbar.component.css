@@ -1,15 +1,23 @@
-.tool, main {
-  margin-left: auto;
+mat-toolbar {
+  height: 5rem;
+}
+.menu {
+  margin-left: 1rem;
+}
+a {
+  margin-left: 1rem;
+}
+
+span {
+  flex: auto;
 }
 
 button {
   margin-right: 1rem;
 }
 
-.menu {
-  padding-left: 10px;
-}
 
-span {
+p {
+  margin: auto;
   cursor: pointer;
 }

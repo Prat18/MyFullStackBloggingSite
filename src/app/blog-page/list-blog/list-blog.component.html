@@ -1,12 +1,10 @@
 <mat-card
   class="list"
-  (click)="clkTest()"
   *ngFor="let blog of blogView"
+  (click)="navToBlog(blog.id)"
 >
-  <mat-card-header>
-    <mat-card-title>{{ blog.title }}</mat-card-title>
-  </mat-card-header>
+  <mat-card-title>{{ blog.title }}</mat-card-title>
   <mat-card-content>
-    <p>{{ blog.description }}</p>
+    <mat-card-subtitle>{{ blog.description }}</mat-card-subtitle>
   </mat-card-content>
 </mat-card>

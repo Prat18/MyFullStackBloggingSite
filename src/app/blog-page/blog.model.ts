@@ -5,6 +5,7 @@ export interface Blog {
 }
 
 export interface Preview {
+  id: string;
   title: string;
   description: string;
 }
