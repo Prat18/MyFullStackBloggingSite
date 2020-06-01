@@ -18,3 +18,7 @@ mat-card-subtitle {
   text-align: justify;
   color: black;
 }
+
+mat-spinner {
+  margin: auto;
+}

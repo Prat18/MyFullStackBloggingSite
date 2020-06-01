@@ -1,6 +1,7 @@
-<br>
-<h1> {{ Renderedblog.title }} </h1>
-<h2> {{ Renderedblog.description }} </h2>
-<br>
+<mat-spinner *ngIf="!rendered" color="primary"></mat-spinner>
 
-<p [innerHTML]="Renderedblog.content"></p>
+<mat-card *ngIf="rendered">
+  <h1>{{ Renderedblog.title }}</h1>
+  <hr>
+  <p [innerHTML]="Renderedblog.content"></p>
+</mat-card>

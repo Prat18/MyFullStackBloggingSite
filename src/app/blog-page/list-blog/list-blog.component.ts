@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class ListBlogComponent implements OnInit{
 
+  loaded = false;
   blogView: Preview[];
 
   constructor(public getBlog: GetBlogService, private router: Router) { }
@@ -22,6 +23,7 @@ export class ListBlogComponent implements OnInit{
     this.getBlog.getBlogView();
     this.getBlog.listenToGetBlog()
       .subscribe((blogs: Preview[]) => {
+        this.loaded = true;
         this.blogView = blogs;
       })
   }
