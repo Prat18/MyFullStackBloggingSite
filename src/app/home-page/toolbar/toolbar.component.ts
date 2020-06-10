@@ -9,7 +9,6 @@ import { SigninComponent } from '../signin/signin.component'
   styleUrls: ['./toolbar.component.css']
 })
 export class ToolbarComponent {
-  company = 'Pratyush\'s Blog';
 
   constructor(private dialog: MatDialog) {}
 

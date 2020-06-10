@@ -1,7 +1,10 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const Blog = require("./models/blogs");
+const getBlogRoute = require("./routes/getBlog");
+const postBlogRoute = require("./routes/postBlog");
+const deleteBlogRoute = require("./routes/deleteBlog");
 
 const app = express();
 const constr =
@@ -18,6 +21,8 @@ mongoose
   });
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/images', express.static(path.join('backend/images')));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -32,42 +37,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/blogs", (req, res, next) => {
-  Blog.find({}, "-content")
-    .then((result) => {
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-app.get("/blog:id", (req, res, next) => {
-  const id = req.params.id;
-  Blog.find({ _id: id }, "-_id").then((result) => {
-    res.status(200).json(result);
-  })
-  .catch((err) => {
-    console.log(err);
-  })
-});
-
-app.post("/post", (req, res, next) => {
-  const blog = new Blog({
-    title: req.body.title,
-    description: req.body.description,
-    content: req.body.content,
-  });
-
-  blog
-    .save()
-    .then((result) => {
-      console.log("Blog added to database!");
-      res.status(210).json("The blog has been recieved!");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+app.use(getBlogRoute);
+app.use(postBlogRoute);
+app.use(deleteBlogRoute);
 
 module.exports = app;

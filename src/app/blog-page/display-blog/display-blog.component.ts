@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { GetBlogService } from "../../get-blog.service";
 import { Blog } from '../blog.model';
-import { CssSelector } from '@angular/compiler';
 
 @Component({
   selector: 'app-display-blog',

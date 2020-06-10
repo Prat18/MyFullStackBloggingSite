@@ -1,11 +1,20 @@
 mat-toolbar {
-  height: 5rem;
+  height: 4rem;
 }
+
+.company {
+  text-decoration: none;
+  color: black;
+  margin-left: 0rem;
+  margin-right: 1rem;
+}
+
 .menu {
-  margin-left: 1rem;
+  margin-left: auto;
 }
+
 a {
-  margin-left: 1rem;
+  margin-left: auto;
 }
 
 span {
@@ -14,10 +23,4 @@ span {
 
 button {
   margin-right: 1rem;
-}
-
-
-p {
-  margin: auto;
-  cursor: pointer;
 }

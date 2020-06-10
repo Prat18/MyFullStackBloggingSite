@@ -1,0 +1,20 @@
+form {
+  flex: auto;
+  width: 11rem;
+  height: 15rem;
+}
+
+mat-card-title {
+  margin: auto;
+}
+
+
+main {
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.submit {
+  margin: auto;
+  display: block;
+}

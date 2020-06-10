@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { SigninCred } from '../credentials.model';
 
 @Component({
@@ -7,16 +7,25 @@ import { SigninCred } from '../credentials.model';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent {
+export class SigninComponent implements OnInit{
 
   cred: SigninCred;
+  form: FormGroup
 
-  onSignin(signinInfo: NgForm) {
+  onSignin() {
     this.cred = {
-      username: signinInfo.value.username,
-      email: signinInfo.value.email,
-      password: signinInfo.value.password
+      username: this.form.value.username,
+      email: this.form.value.email,
+      password: this.form.value.password
     }
     console.log(this.cred);
+  }
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      username: new FormControl(null, {validators: [Validators.required]}),
+      email: new FormControl(null, {validators: [Validators.required]}),
+      password: new FormControl(null, {validators: [Validators.required]})
+    })
   }
 }

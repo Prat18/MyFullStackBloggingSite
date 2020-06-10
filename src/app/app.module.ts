@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms'
+import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 // TinyMCE
 import { EditorModule } from '@tinymce/tinymce-angular';
@@ -15,6 +15,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatPaginatorModule } from '@angular/material/paginator'
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
@@ -45,6 +46,7 @@ import { HomeComponent } from './admin/home/home.component';
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FormsModule,
     MatToolbarModule,
     MatButtonModule,
@@ -52,7 +54,8 @@ import { HomeComponent } from './admin/home/home.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   entryComponents: [
     SigninComponent,
