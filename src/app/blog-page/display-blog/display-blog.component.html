@@ -1,0 +1,7 @@
+<mat-spinner *ngIf="!rendered" color="primary"></mat-spinner>
+
+<mat-card *ngIf="rendered">
+  <h1>{{ Renderedblog.title }}</h1>
+  <hr>
+  <p [innerHTML]="Renderedblog.content"></p>
+</mat-card>

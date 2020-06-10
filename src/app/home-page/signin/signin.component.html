@@ -1,0 +1,33 @@
+<form (submit)="onSignin()" class="signin" [formGroup]="form">
+  <div class="title"><mat-card-title>Signup</mat-card-title></div>
+  <main>
+    <mat-form-field>
+      <input
+        formControlName="username"
+        matInput
+        type="text"
+        placeholder="Enter name"
+      >
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input
+        formControlName="email"
+        matInput
+        type="text"
+        placeholder="Enter email"
+      >
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input
+        formControlName="password"
+        matInput
+        placeholder="Enter password"
+        type="password"
+      >
+    </mat-form-field>
+  </main>
+  <br>
+  <button type="submit" mat-raised-button color="primary" > Signin </button>
+</form>

@@ -1,0 +1,32 @@
+.list {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+
+mat-card {
+  background-color: ghostwhite;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image {
+  width: 10rem;
+  margin: auto;
+}
+
+mat-card-title {
+  text-align: center;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+mat-card-subtitle {
+  text-align: justify;
+  color: black;
+}
+
+mat-spinner {
+  margin: auto;
+}

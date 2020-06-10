@@ -1,0 +1,16 @@
+mat-card {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 10%;
+  margin-right: 10%;
+  align-self: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+mat-spinner {
+  margin: auto;
+  margin-top: 5rem;
+}

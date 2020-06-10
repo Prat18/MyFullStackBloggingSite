@@ -1,0 +1,83 @@
+<div>
+  <div>
+    <br />
+    <h1>Create New Blog</h1>
+  </div>
+  <hr />
+  <br />
+  <form (submit)="onPost()" [formGroup]="blog">
+    <div>
+      <br /><br />
+      <mat-card class="matheader">
+        <div class="header">
+          <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input
+              formControlName="title"
+              class="title"
+              placeholder="Title"
+              type="text"
+              matInput
+            />
+          </mat-form-field>
+          <div>
+            <button
+              mat-stroked-button
+              type="button"
+              (click)="filePicker.click()"
+            >
+              Thumbnail
+            </button>
+            <input type="file" #filePicker (change)="onImagePicked($event)" />
+          </div>
+          <br>
+          <div>
+            <img
+              [src]="previewImage"
+              [alt]="blog.get('title')"
+              *ngIf="previewImage != '' && previewImage"
+              class="preview"
+            />
+          </div>
+          <br />
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea
+              formControlName="description"
+              type="text"
+              rows="5"
+              class="description"
+              matInput
+              placeholder="Description"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </mat-card>
+      <br />
+      <div class="editor">
+        <editor
+          formControlName="content"
+          apiKey="mwtatukwnsowju372vv1vebwqc0xw0dyv8560ri8z1d492zb"
+          [init]="{
+            height: 500,
+            menubar: false,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | removeformat | help'
+          }"
+        ></editor>
+        <br />
+        <div class="post">
+          <button type="submit" color="primary" mat-raised-button>Post</button>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+  </form>
+</div>
