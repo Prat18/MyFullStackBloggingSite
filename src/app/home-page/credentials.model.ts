@@ -1,5 +1,5 @@
 export interface LoginCred {
-  username: string;
+  email: string;
   password: string;
 }
 

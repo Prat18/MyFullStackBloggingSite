@@ -1,16 +1,31 @@
 mat-toolbar {
-  height: 4rem;
+  background-image: url(../../images/navbar/jeremy-bishop-G9i_plbfDgk-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  align-items: flex-start;
+
 }
 
 .company {
+  letter-spacing: 3px;
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
+  font-family: 'Alex Brush', cursive;
+  font-size: 4rem;
   margin-left: 0rem;
   margin-right: 1rem;
 }
 
 .menu {
+  position: absolute;
+  top: 2rem;
+}
+
+.menu a {
   margin-left: auto;
+  color: whitesmoke;
+  right: 2px;
 }
 
 a {

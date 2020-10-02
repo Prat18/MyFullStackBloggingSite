@@ -1,0 +1,35 @@
+<br>
+<mat-card-title>Comment Box</mat-card-title>
+<hr />
+<br />
+<form (submit)="onComment(formComment)" #formComment="ngForm">
+  <div>
+    <br />
+    <div class="editor">
+      <editor
+      ngModel
+      name="comment"
+      #comment
+        apiKey="mwtatukwnsowju372vv1vebwqc0xw0dyv8560ri8z1d492zb"
+        [init]="{
+          height: 200,
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table paste code help wordcount'
+          ],
+          toolbar:
+            'undo redo | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | removeformat | help'
+        }"
+      ></editor>
+      <br />
+      <div class="post">
+        <button type="submit" color="primary" mat-raised-button>Submit</button>
+      </div>
+      <br /><br />
+    </div>
+  </div>
+</form>

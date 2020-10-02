@@ -4,6 +4,7 @@ const blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   content: { type: String, required: true },
+  likedBy: { type: Array },
   imagePath: { type: String, required: true }
 });
 

@@ -1,27 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginCred } from '../credentials.model';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
+  forgot: boolean = true;
+  message: string = '';
 
-  cred: LoginCred;
-  form: FormGroup;
+  constructor(private authService: AuthService) {}
 
-  onLogin() {
-    this.cred = {username: this.form.value.username, password: this.form.value.password};
-    console.log(this.cred.username);
-    console.log(this.cred.password);
+  onLogin(form: NgForm) {
+    this.authService.login(form.value.email, form.value.password);
   }
 
-  ngOnInit() {
-    this.form = new FormGroup({
-      username: new FormControl(null, {validators: [Validators.required]}),
-      password: new FormControl(null, {validators: [Validators.required]})
+  onForgotClick() {
+    this.forgot = false;
+  }
+
+  onForgot(form: NgForm) {
+    console.log(form.value.email);
+    this.authService.passwordResetRequest(form.value.email).subscribe((result) => {
+      this.message = result.message;
+      console.log(result);
+    }, (error) => {
+      console.log(error);
     })
   }
 }

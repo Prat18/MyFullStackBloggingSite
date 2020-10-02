@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Confirm your account</h1>
+<form class="confirm" (ngSubmit)="onConfirm(confirmnForm)" #confirmnForm="ngForm">
+  <mat-form-field>
+    <input ngModel type="email" placeholder="email" matInput name="email" #email/>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit">Confirm</button>
+  <button mat-stroked-button color="primary" type="button" (click)="onResend(confirmnForm)">Re-send</button>
+</form>

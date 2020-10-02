@@ -1,0 +1,25 @@
+mat-label {
+  font-weight: bolder;
+}
+
+p {
+  font: bold;
+}
+
+h1 {
+  margin-left: 2rem;
+}
+
+.comment {
+  margin-left: 2rem;
+}
+
+.options {
+  font-size: smaller;
+  display: inline;
+}
+
+textarea {
+  width: 25rem;
+  height: 7rem;
+}

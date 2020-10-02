@@ -1,0 +1,28 @@
+<div class="comment" *ngFor="let comment of comments">
+  <mat-label>{{ comment.name + "   " + comment.date.toString() }}</mat-label>
+  <span class="comment"><p [innerHTML]="comment.comment"></p></span>
+  <div class="options">
+    <div *ngIf="!isEdit">
+      <button mat-flat-button (click)="onDelete(comment.commentId)">
+        delete
+      </button>
+      <button mat-flat-button (click)="onEdit(null, null)">edit</button>
+    </div>
+    <form (submit)="onEdit(comment, updatedComment)" #updatedComment="ngForm" *ngIf="isEdit">
+      <textarea
+        ngModel
+        #updatedComment
+        name="updatedComment"
+        type="text"
+        placeholder="Edit your comment..."
+        required
+      ></textarea
+      ><br />
+      <button mat-button color="primary" type="submit">
+        Update
+      </button>
+      <button mat-button color="primary" (click)="onEdit(null, null)">Cancel</button>
+    </form>
+  </div>
+  <br /><br />
+</div>

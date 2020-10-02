@@ -7,7 +7,9 @@ form {
 mat-card-title {
   margin: auto;
 }
-
+a {
+  cursor: pointer;
+}
 
 main {
   margin: auto;

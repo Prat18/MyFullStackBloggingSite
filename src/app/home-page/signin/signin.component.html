@@ -1,33 +1,39 @@
-<form (submit)="onSignin()" class="signin" [formGroup]="form">
+<form (submit)="onSignin(loginForm)" class="signin" #loginForm = "ngForm">
   <div class="title"><mat-card-title>Signup</mat-card-title></div>
   <main>
     <mat-form-field>
       <input
-        formControlName="username"
+        ngModel
+        #userName
+        name="username"
         matInput
         type="text"
         placeholder="Enter name"
-      >
+      />
     </mat-form-field>
-    <br>
+    <br />
     <mat-form-field>
       <input
-        formControlName="email"
+        ngModel
+        name="email"
+        #email
         matInput
-        type="text"
+        type="email"
         placeholder="Enter email"
-      >
+      />
     </mat-form-field>
-    <br>
+    <br />
     <mat-form-field>
       <input
-        formControlName="password"
+        ngModel
+        name="password"
+        #password
         matInput
         placeholder="Enter password"
         type="password"
-      >
+      />
     </mat-form-field>
   </main>
-  <br>
-  <button type="submit" mat-raised-button color="primary" > Signin </button>
+  <br />
+  <button type="submit" mat-raised-button color="primary">Signin</button>
 </form>

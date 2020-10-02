@@ -1,27 +1,63 @@
-<form (submit)="onLogin()" class="login" [formGroup]="form">
+<form
+  (submit)="onLogin(loginForm)"
+  *ngIf="forgot"
+  class="login"
+  #loginForm="ngForm"
+>
   <div class="title"><mat-card-title>Login</mat-card-title></div>
   <main>
     <mat-form-field>
       <input
-        formControlName="username"
+        ngModel
+        #email
         matInput
-        name="username"
+        name="email"
         type="text"
-        placeholder="username"
+        placeholder="email"
+        required
       />
     </mat-form-field>
     <br />
     <mat-form-field>
       <input
-      formControlName="password"
         matInput
+        ngModel
+        name="password"
         placeholder="password"
         type="password"
+        required
       />
     </mat-form-field>
-    <br /><br>
+    <br />
+    <a ng-href="" (click)="onForgotClick()">Forgot password?</a>
+
     <div class="submit">
+      <br />
       <button type="submit" mat-raised-button color="primary">Signin</button>
     </div>
   </main>
 </form>
+
+<form
+  (submit)="onForgot(resetForm)"
+  *ngIf="!forgot && message === ''"
+  class="login"
+  #resetForm="ngForm"
+>
+  <div class="title"><mat-card-title>Reset Password</mat-card-title></div>
+  <br />
+  <mat-form-field>
+    <input
+      matInput
+      ngModel
+      name="email"
+      placeholder="Enter your email"
+      type="email"
+      required
+    />
+  </mat-form-field>
+  <br />
+  <button type="submit" mat-raised-button color="primary">reset</button>
+</form>
+
+<mat-error>{{message}}</mat-error>

@@ -13,11 +13,11 @@ import { PageEvent } from '@angular/material/paginator';
 export class ListBlogComponent implements OnInit, OnDestroy{
 
   loaded = false;
-  blogView: Preview[];
+  blogView: Preview[] = [];
   postsSub = new Subscription;
+  currentPage = 1;
   pageSizeOptions = [2, 5, 10, 15];
-  pageIndex = 0;
-  pageSize = 5;
+  blogsPerPage = 2;
   count = 0;
 
   constructor(public getBlog: GetBlogService, private router: Router) { }
@@ -33,19 +33,19 @@ export class ListBlogComponent implements OnInit, OnDestroy{
     })
   }
 
-  onPageChange(page: PageEvent) {
-    console.log(page);
-    this.pageIndex = page.pageIndex;
-    this.pageSize = page.pageSize;
-    this.getBlog.getBlogView(this.pageIndex, this.pageSize);
+  onPageChange(pageData: PageEvent) {
+    this.currentPage = pageData.pageIndex + 1;
+    this.blogsPerPage = pageData.pageSize;
+    this.getBlog.getBlogView(this.currentPage, this.blogsPerPage);
   }
 
   ngOnInit() {
-    this.getBlog.getBlogView(this.pageIndex, this.pageSize);
+    this.getBlog.getBlogView(this.currentPage, this.blogsPerPage);
     this.postsSub = this.getBlog.listenToGetBlog()
-      .subscribe((blogs: Preview[]) => {
+      .subscribe((blogs: any) => {
         this.loaded = true;
-        this.blogView = blogs;
+        this.count = blogs.maxCount;
+        this.blogView = blogs.blogs;
       })
   }
 

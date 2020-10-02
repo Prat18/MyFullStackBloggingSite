@@ -25,18 +25,18 @@ export class GetBlogService {
       .pipe(
         map((blogData) => {
           return {
-            blog: blogData.map(
-              (blogData: {
+            blogs: blogData.blogs.map(
+              (blog: {
                 description: any;
                 title: any;
                 _id: any;
                 imagePath: any;
               }) => {
                 return {
-                  id: blogData._id,
-                  title: blogData.title,
-                  description: blogData.description,
-                  imagePath: blogData.imagePath,
+                  id: blog._id,
+                  title: blog.title,
+                  description: blog.description,
+                  imagePath: blog.imagePath,
                 };
               }
             ),
@@ -55,11 +55,12 @@ export class GetBlogService {
       .pipe(
         map((blogData) => {
           return blogData.map(
-            (blogData: { title: any; description: any; content: any }) => {
+            (blogData: { title: string; description: string; content: string, likedBy: Array<{name: string, id: string}> }) => {
               return {
                 title: blogData.title,
                 description: blogData.description,
                 content: blogData.content,
+                likedBy: blogData.likedBy
               };
             }
           );
@@ -81,6 +82,13 @@ export class GetBlogService {
       .subscribe((message) => {
         console.log(message);
       });
+  }
+
+  likeBlog(blogId: string, isLiked: boolean) {
+    return this.http.put<{success: boolean, message: string}>('http://localhost:3000/like-blog', {
+      blogId,
+      isLiked,
+    });
   }
 
   deleteBlog(id: string) {

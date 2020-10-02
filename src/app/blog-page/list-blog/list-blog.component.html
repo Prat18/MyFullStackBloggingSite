@@ -15,10 +15,10 @@
     </button>
   </mat-card>
   <mat-paginator
-    [pageSizeOptions]="pageSizeOptions"
-    [pageIndex]="pageIndex"
-    [pageSize]="pageSize"
     [length]="count"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageSize]="blogsPerPage"
     (page)="onPageChange($event)"
+    *ngIf="blogView.length > 0"
   ></mat-paginator>
 </div>

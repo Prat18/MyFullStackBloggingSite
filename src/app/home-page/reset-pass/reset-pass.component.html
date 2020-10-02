@@ -1,0 +1,40 @@
+<form (submit)="onReset(resetForm)" class="signin" #resetForm = "ngForm">
+  <div class="title"><mat-card-title>Reset Password</mat-card-title></div>
+  <br>
+  <main>
+    <mat-form-field>
+      <input
+        ngModel
+        name="email"
+        #email
+        matInput
+        type="email"
+        placeholder="Enter email"
+      />
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input
+        ngModel
+        name="password1"
+        #password1
+        matInput
+        placeholder="New password"
+        type="password"
+      />
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input
+        ngModel
+        name="password2"
+        #password2
+        matInput
+        placeholder="Confirm password"
+        type="password"
+      />
+    </mat-form-field>
+  </main>
+  <br />
+  <button type="submit" mat-raised-button color="primary">Reset</button>
+</form>

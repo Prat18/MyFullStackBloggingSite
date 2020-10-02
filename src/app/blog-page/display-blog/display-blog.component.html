@@ -2,6 +2,28 @@
 
 <mat-card *ngIf="rendered">
   <h1>{{ Renderedblog.title }}</h1>
-  <hr>
+  <hr />
   <p [innerHTML]="Renderedblog.content"></p>
+  <p *ngFor="let name of Renderedblog.likedBy">{{ name.name + " "}}</p>
+  <button
+    mat-button
+    color="primary"
+    (click)="onLike()"
+    *ngIf="!likeButton && isAuthenticated"
+    [disabled]="disabled"
+  >
+    Like
+  </button>
+  <button
+    mat-button
+    color="primary"
+    (click)="onLike()"
+    *ngIf="likeButton && isAuthenticated"
+    [disabled]="disabled"
+  >
+    Unlike
+  </button>
 </mat-card>
+
+<app-comment-box></app-comment-box>
+<app-list-comment></app-list-comment>

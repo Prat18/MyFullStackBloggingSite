@@ -19,7 +19,7 @@ export class CreateBlogComponent implements OnInit{
 
   onPost() {
     if(this.blog.invalid) return;
-    const blogPost: Blog = { title: this.blog.value.title, description: this.blog.value.description, content: this.blog.value.content };
+    const blogPost: Blog = { title: this.blog.value.title, description: this.blog.value.description, content: this.blog.value.content, likedBy: [] };
     this.postBlogService.postBlog(blogPost, this.blog.value.image);
     this.blog.reset();
   }
